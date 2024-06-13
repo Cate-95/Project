@@ -1,0 +1,17 @@
+<form method="post">
+  {% csrf_token %}
+  <label for="date">Date:</label>
+  <input type="date" id="date" name="date"><br><br>
+  <label for="calories_consumed">Calories Consumed:</label>
+  <input type="number" id="calories_consumed" name="calories_consumed"><br><br>
+  <label for="goal_calories">Goal Calories:</label>
+  <input type="number" id="goal_calories" name="goal_calories"><br><br>
+  <input type="submit" value="Calculate">
+</form>
+
+{% if calorie_data %}
+  <p>Calorie data saved!</p>
+  <p>Date: {{ calorie_data.date }}</p>
+  <p>Calories Consumed: {{ calorie_data.calories_consumed }}</p>
+  <p>Goal Calories: {{ calorie_data.goal_calories }}</p>
+{% endif %}
